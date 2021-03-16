@@ -9,6 +9,12 @@ cache:
     - node_modules
     - public
 
+addons:
+  sonarcloud:
+    organization: "jyeok" # the key of the org you chose at step #3
+    token:
+      secure: $SONAR_TOKEN # encrypted value of your token
+
 before_install:
   - npm install -g gatsby-cli
 
@@ -28,9 +34,3 @@ deploy:
   local_dir: public
   on:
     branch: master
-
-addons:
-  sonarcloud:
-    organization: "jyeok" # the key of the org you chose at step #3
-    token:
-      secure: $SONAR_TOKEN # encrypted value of your token
