@@ -17,6 +17,7 @@ install:
 
 script:
   - npm run build
+  - sonar-scanner
 
 # 배포 설정
 deploy:
@@ -27,3 +28,9 @@ deploy:
   local_dir: public
   on:
     branch: master
+
+addons:
+  sonarcloud:
+    organization: "jyeok" # the key of the org you chose at step #3
+    token:
+      secure: $SONAR_TOKEN # encrypted value of your token
